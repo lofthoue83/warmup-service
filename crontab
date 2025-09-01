@@ -1,0 +1,3 @@
+# Run warmup every 30 minutes
+*/30 * * * * python /app/warmup.py >> /var/log/cron.log 2>&1
+# Empty line needed at the end
