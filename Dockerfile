@@ -24,5 +24,5 @@ RUN crontab /etc/cron.d/warmup-cron
 # Create log file
 RUN touch /var/log/cron.log
 
-# Run cron and tail the log
-CMD cron && tail -f /var/log/cron.log
+# Run the warmup once on startup, then start cron
+CMD python /app/warmup.py && echo "Initial warmup completed. Starting cron..." && cron && tail -f /var/log/cron.log
